@@ -10,6 +10,7 @@ namespace VideoStreamPlayer.UnitTests
     public class StreamClientTests
     {
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions throws InvalidOperationException in case of when currentBuffer and bufferPrevState have different lengths")]
         public void GetJpegStartAndEndPositions_InputByteArraysHaveDiffirentLength_ThrowsInvalidOperationException()
         {
             // Arrange
@@ -27,6 +28,7 @@ namespace VideoStreamPlayer.UnitTests
         }
 
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions throws InvalidOperationException in case of when currentBufferBytesRead more than currentBuffer length")]
         public void GetJpegStartAndEndPositions_CurrentBufferBytesReadIsMoreThanCurrentBuffersLength_ThrowsInvalidOperationException()
         {
             // Arrange
@@ -44,6 +46,7 @@ namespace VideoStreamPlayer.UnitTests
         }
 
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions throws InvalidOperationException in case of when null currentBuffer passed")]
         public void GetJpegStartAndEndPositions_NullCurrentBufferPassed_ThrowsArgumentNullException()
         {
             // Arrange
@@ -61,6 +64,7 @@ namespace VideoStreamPlayer.UnitTests
         }
 
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions throws InvalidOperationException in case of when bufferPrevStateBytesRead more than bufferPrevState length")]
         public void GetJpegStartAndEndPositions_BufferPrevStateBytesReadIsMoreThanBufferPrevStateLength_ThrowsInvalidOperationException()
         {
             // Arrange
@@ -78,6 +82,7 @@ namespace VideoStreamPlayer.UnitTests
         }
 
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions returns one element in case of MJPEG start pattern starts on the end of bufferPrevState and ends in currentBuffer")]
         public void GetJpegStartAndEndPositions_JPEGFrameStartPatternStartsInBufferPrevStateAndEndsInCurrentBuffer_ReturnsListWithOneElement()
         {
             // Arrange
@@ -98,6 +103,7 @@ namespace VideoStreamPlayer.UnitTests
         }
 
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions returns two elements in case of MJPEG end pattern starts on the end of bufferPrevState and ends in currentBuffer")]
         public void GetJpegStartAndEndPositions_JPEGFrameEndPatternStartsInBufferPrevStateAndEndsInCurrentBuffer_ReturnsListWithTwoElements()
         {
             // Arrange
@@ -118,6 +124,7 @@ namespace VideoStreamPlayer.UnitTests
         }
 
         [TestMethod]
+        [Description("Check that GetJpegStartAndEndPositions returns two elements in case of currentBuffer contains 2 frames(JPEG start pattern, JPEG data, JPEG end pattern)")]
         public void GetJpegStartAndEndPositions_CurrentBufferContains2FramesAndBufferPrevStateIsNull_ReturnsListWithTwoElements()
         {
             // Arrange
