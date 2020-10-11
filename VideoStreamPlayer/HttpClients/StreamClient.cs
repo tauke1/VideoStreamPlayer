@@ -114,6 +114,15 @@ namespace VideoStreamPlayer.HttpClients
             if (callback == null)
                 throw new ArgumentNullException(nameof(callback));
 
+            if (urlOrPath == null)
+                throw new ArgumentNullException(nameof(urlOrPath));
+
+            if (urlOrPath.Trim() == string.Empty)
+                throw new ArgumentException($"Input cannot be empty", nameof(urlOrPath));
+
+            if (streamProvider == null)
+                throw new ArgumentNullException(nameof(streamProvider));
+
             // we have another options: using byte array, but i condidered to use Memory Stream to contains data of current MJPEG Frame
             using (MemoryStream mStream = new MemoryStream())
             {
