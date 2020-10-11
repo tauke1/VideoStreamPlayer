@@ -29,10 +29,10 @@ namespace VideoStreamPlayer
             Task.Run(async () => await StartStreamLoadingAsync("http://83.128.74.78:8083/mjpg/video.mjpg", streetPictureBox, _webStreamProvider));
             Task.Run(async () => await StartStreamLoadingAsync("http://77.164.3.132/mjpg/video.mjpg", puppiesPictureBox, _webStreamProvider));
             Task.Run(async () => await StartStreamLoadingAsync("http://62.45.108.115:80/mjpg/video.mjpg", uretchtPictureBox, _webStreamProvider));
-            _fileReadBackgroundTask = StartStreamFromFile();
+            _fileReadBackgroundTask = StartStreamFromFileAsync();
         }
 
-        private Task StartStreamFromFile()
+        private Task StartStreamFromFileAsync()
         {
             return Task.Run(async () => await StartStreamLoadingAsync("Samples/sample_640x360.mjpeg", fromFilePictureBox, _fileStreamProvider));
         }
@@ -67,7 +67,7 @@ namespace VideoStreamPlayer
         {
             if (_fileReadBackgroundTask == null || _fileReadBackgroundTask.IsCompleted)
             {
-                _fileReadBackgroundTask = StartStreamFromFile();
+                _fileReadBackgroundTask = StartStreamFromFileAsync();
             }
         }
     }
