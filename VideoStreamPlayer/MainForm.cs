@@ -26,18 +26,18 @@ namespace VideoStreamPlayer
             _webStreamProvider = webStreamProvider;
             _fileStreamProvider = fileStreamProvider;
             InitializeComponent();
-            Task.Run(async () => await StartStreamLoading("http://83.128.74.78:8083/mjpg/video.mjpg", streetPictureBox, _webStreamProvider));
-            Task.Run(async () => await StartStreamLoading("http://77.164.3.132/mjpg/video.mjpg", puppiesPictureBox, _webStreamProvider));
-            Task.Run(async () => await StartStreamLoading("http://62.45.108.115:80/mjpg/video.mjpg", uretchtPictureBox, _webStreamProvider));
-            _fileReadBackgroundTask = StartShowingStreamFromFile();
+            Task.Run(async () => await StartStreamLoadingAsync("http://83.128.74.78:8083/mjpg/video.mjpg", streetPictureBox, _webStreamProvider));
+            Task.Run(async () => await StartStreamLoadingAsync("http://77.164.3.132/mjpg/video.mjpg", puppiesPictureBox, _webStreamProvider));
+            Task.Run(async () => await StartStreamLoadingAsync("http://62.45.108.115:80/mjpg/video.mjpg", uretchtPictureBox, _webStreamProvider));
+            _fileReadBackgroundTask = StartStreamFromFile();
         }
 
-        private Task StartShowingStreamFromFile()
+        private Task StartStreamFromFile()
         {
-            return Task.Run(async () => await StartStreamLoading("Samples/sample_640x360.mjpeg", fromFilePictureBox, _fileStreamProvider));
+            return Task.Run(async () => await StartStreamLoadingAsync("Samples/sample_640x360.mjpeg", fromFilePictureBox, _fileStreamProvider));
         }
 
-        private async Task StartStreamLoading(string pathOrUrl, PictureBox pictureBox, IStreamProvider streamProvider)
+        private async Task StartStreamLoadingAsync(string pathOrUrl, PictureBox pictureBox, IStreamProvider streamProvider)
         {
             try
             {
@@ -67,7 +67,7 @@ namespace VideoStreamPlayer
         {
             if (_fileReadBackgroundTask == null || _fileReadBackgroundTask.IsCompleted)
             {
-                _fileReadBackgroundTask = StartShowingStreamFromFile();
+                _fileReadBackgroundTask = StartStreamFromFile();
             }
         }
     }
