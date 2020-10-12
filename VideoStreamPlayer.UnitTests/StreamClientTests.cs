@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VideoStreamPlayer.HttpClients;
+using VideoStreamPlayer.Clients;
 using VideoStreamPlayer.Models;
 
 namespace VideoStreamPlayer.UnitTests
