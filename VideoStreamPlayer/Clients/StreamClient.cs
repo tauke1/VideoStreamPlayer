@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using VideoStreamPlayer.Models;
 using VideoStreamPlayer.StreamProviders;
 
-namespace VideoStreamPlayer.HttpClients
+namespace VideoStreamPlayer.Clients
 {
     public class StreamClient : IStreamClient
     {

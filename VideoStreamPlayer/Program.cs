@@ -2,11 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using VideoStreamPlayer.HttpClients;
+using VideoStreamPlayer.Clients;
 using VideoStreamPlayer.StreamProviders;
 
 namespace VideoStreamPlayer

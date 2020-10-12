@@ -162,9 +162,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HttpClients\IStreamClient.cs" />
+    <Compile Include="Clients\IStreamClient.cs" />
     <Compile Include="StreamProviders\IStreamProvider.cs" />
-    <Compile Include="HttpClients\StreamClient.cs" />
+    <Compile Include="Clients\StreamClient.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

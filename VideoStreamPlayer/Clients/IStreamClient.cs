@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using VideoStreamPlayer.StreamProviders;
 
-namespace VideoStreamPlayer.HttpClients
+namespace VideoStreamPlayer.Clients
 {
     public interface IStreamClient
     {
